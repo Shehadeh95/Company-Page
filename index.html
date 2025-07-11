@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Training Flowchart</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .mermaid {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="mermaid">
+  ---
+  config:
+    theme: neutral
+    look: neo
+    layout: dagre
+  ---
+  flowchart TD
+   subgraph s1["Haemostasis & Immunochemistry"]
+          HBEB["HBEB\\Web-based"]
+          H&I["H&I"]
+          HST["HISCL"]
+          CATT["CA-Series"]
+          C16T["CS-1600"]
+          C2TT["CS-2XOOi"]
+          C5TT["CS-5100"]
+          CN1T["CN-3000/6000"]
+          C6ST["CN-3500/6500"]
+    end
+   subgraph Urinalysis["Urinalysis"]
+          UFTT["UFTT"]
+          UA["Urin"]
+          U15T["U15T"]
+          UCTT["UCTT"]
+          TI1T["T11T"]
+          UCTO["UCTO"]
+          UDTT["UDTT"]
+    end
+   subgraph Haematology["Haematology"]
+          H1TT["H1TT"]
+          HEM["HAEM"]
+          H2TT["H2TT"]
+          D1TT["D1TT"]
+          XQ1T["XQ1T"]
+          XRTT["XRTT"]
+          HATT["HATT"]
+          Auto["Automation"]
+          RTBT["RAL"]
+          S1TT["S1TT"]
+          S5TT["S5TT"]
+          XVTT["XVTT"]
+          RU20["RU-20\\Web-based"]
+          OA3T["Optical Alignment Training"]
+    end
+   subgraph subGraph3["Flow Cytometry"]
+          EHST["Essential Healthcare"]
+          FC["FCM"]
+          XF1T["XF-1600 TT"]
+          XI0T["Optical Alignment\\XF-1600"]
+    end
+   subgraph subGraph4["Life Science"]
+          PS1T["RDTT"]
+          LS["LS"]
+          S27T["Sentifit 270"]
+          S80T["Sentifit 800"]
+          RDTT["RD-210"]
+          SFTT["Sentifob"]
+    end
+      SGTT["SGTT"] --> H&I & UA & HEM & FC & LS
+      H&I --> HBEB
+      HBEB --> HST & CATT & C16T & C2TT & C5TT & CN1T
+      CN1T --> C6ST
+      UA --> UFTT & UCTT & TI1T & UCTO & UDTT
+      HEM --> H1TT & H2TT & XQ1T & XRTT
+      Auto --> HATT & RTBT & S1TT & S5TT & D1TT
+      XRTT --> XVTT & RU20 & OA3T & Auto
+      FC --> EHST & H2TT
+      LS --> PS1T & S27T & S80T & RDTT & SFTT
+      UFTT --> U15T
+      H2TT --> XF1T
+      XF1T --> XI0T
+      style Haematology fill:#FFCDD2
+      style Urinalysis fill:#FFE0B2
+      style subGraph3 fill:#C8E6C9
+      style subGraph4 fill:#FFF9C4
+      style s1 fill:#E1BEE7
+  </div>
+</body>
+</html>
