@@ -2,19 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mermaid Diagram</title>
   <script type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     mermaid.initialize({
-      startOnLoad: true,
-      theme: "neutral"
+      startOnLoad: true
     });
   </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+      background: #f9f9f9;
+    }
+    .mermaid {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
+  <h1>Sysmex Training Flow</h1>
   <div class="mermaid">
-    %%{ init: { "theme": "neutral", "layout": "dagre", "themeVariables": { "fontFamily": "Arial" } } }%%
-    flowchart TD
+%%{ init: { "theme": "neutral", "themeVariables": { "fontFamily": "Arial" }, "flowchart": { "curve": "linear" }, "layout": "dagre" } }%%
+flowchart TD
  subgraph s1["Haemostasis & Immunochemistry"]
         HBEB["HBEB\Web-based"]
         H&I["H&I"]
@@ -39,7 +53,7 @@
         H1TT["H1TT"]
         HEM["HAEM"]
         H2TT["H2TT"]
-        D1TT["D1TT"]
+        D1TT["DITT"]
         XQ1T["XQ1T"]
         XRTT["XRTT"]
         HATT["HATT"]
@@ -78,13 +92,19 @@
     UFTT --> U15T
     H2TT --> XF1T
     XF1T --> XI0T
-    EHST --> XF1T
     style Haematology fill:#FFCDD2
     style Urinalysis fill:#FFE0B2
     style subGraph3 fill:#C8E6C9
     style subGraph4 fill:#FFF9C4
     style s1 fill:#E1BEE7
     click H1TT "https://lms.sysmex-academy.com/explore/haematology-technical-training-i-31"
+    click H2TT "https://lms.sysmex-academy.com/explore/haematology-technical-training-ii-27"
+    click D1TT "https://lms.sysmex-academy.com/explore/dm1200-di-60-technical-training-25"
+    click XQ1T "https://lms.sysmex-academy.com/explore/xq-technical-introduction"
+    click XRTT "https://lms.sysmex-academy.com/explore/xr-10002000-and-xn-10002000-technical-training-27"
+    click HATT "https://lms.sysmex-academy.com/explore/haematology-automation-track-technical-training-12"
+    click S5TT "https://lms.sysmex-academy.com/explore/sp-50-xn-1500-technical-training-76"
+    click RU20 "https://lms.sysmex-academy.com/explore/web-based-training-ru-20"
 
   </div>
 </body>
